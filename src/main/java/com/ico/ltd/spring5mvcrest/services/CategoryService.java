@@ -1,0 +1,12 @@
+package com.ico.ltd.spring5mvcrest.services;
+
+import com.ico.ltd.spring5mvcrest.api.v1.model.CategoryDTO;
+
+import java.util.List;
+
+public interface CategoryService {
+
+    List<CategoryDTO> getAllCategories();
+
+    CategoryDTO getCategoryByName(String name);
+}
