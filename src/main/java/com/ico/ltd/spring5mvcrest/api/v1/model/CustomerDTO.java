@@ -1,5 +1,6 @@
 package com.ico.ltd.spring5mvcrest.api.v1.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
@@ -11,5 +12,6 @@ public class CustomerDTO {
 
     private String lastName;
 
+    @JsonProperty("customer_url")
     private String url;
 }
