@@ -2,6 +2,7 @@ package com.ico.ltd.spring5mvcrest.services;
 
 import com.ico.ltd.spring5mvcrest.api.v1.mapper.CustomerMapper;
 import com.ico.ltd.spring5mvcrest.api.v1.model.CustomerDTO;
+import com.ico.ltd.spring5mvcrest.controllers.v1.CustomerController;
 import com.ico.ltd.spring5mvcrest.domain.Customer;
 import com.ico.ltd.spring5mvcrest.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,14 @@ public class CustomerServiceImpl implements CustomerService {
                 .stream()
                 .map(customer -> {
                     CustomerDTO customerDTO = mapper.customerToCustomerDTO(customer);
-                    customerDTO.setUrl("/api/v1/customers/" + customer.getId());
+                    customerDTO.setUrl(getCustomerUrl(customer.getId()));
                     return customerDTO;
                 })
                 .collect(Collectors.toList());
+    }
+
+    private String getCustomerUrl(Long id) {
+        return CustomerController.BASE_URL + "/" + id;
     }
 
     @Override
@@ -49,7 +54,7 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerDTO saveAndReturn(Customer customer) {
         Customer updatedCustomer = customerRepository.save(customer);
         CustomerDTO customerDTO = mapper.customerToCustomerDTO(updatedCustomer);
-        customerDTO.setUrl("/api/v1/customers/" + updatedCustomer.getId());
+        customerDTO.setUrl(getCustomerUrl(updatedCustomer.getId()));
         return customerDTO;
     }
 
@@ -73,7 +78,7 @@ public class CustomerServiceImpl implements CustomerService {
             }
 
             CustomerDTO returnedDTO = mapper.customerToCustomerDTO(customerRepository.save(customer));
-            returnedDTO.setUrl("/api/v1/customers/" + id);
+            returnedDTO.setUrl(getCustomerUrl(id));
 
             return returnedDTO;
         }).orElseThrow(RuntimeException::new); //todo implement better exception handling;
