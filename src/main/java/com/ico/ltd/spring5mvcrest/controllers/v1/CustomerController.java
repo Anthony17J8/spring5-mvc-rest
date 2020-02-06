@@ -3,6 +3,7 @@ package com.ico.ltd.spring5mvcrest.controllers.v1;
 import com.ico.ltd.spring5mvcrest.api.v1.model.CustomerDTO;
 import com.ico.ltd.spring5mvcrest.api.v1.model.CustomerListDTO;
 import com.ico.ltd.spring5mvcrest.services.CustomerService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @ApiOperation(value = "This will get a list of customers", notes = "These are notes about API")
     @GetMapping
     public ResponseEntity<CustomerListDTO> getCustomers() {
         return new ResponseEntity<>(new CustomerListDTO(customerService.getCustomers()), HttpStatus.OK);
