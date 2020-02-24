@@ -4,7 +4,7 @@ import com.ico.ltd.spring5mvcrest.api.v1.model.CategoryDTO;
 import com.ico.ltd.spring5mvcrest.domain.Category;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CategoryMapperTest {
 
