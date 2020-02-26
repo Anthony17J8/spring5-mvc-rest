@@ -1,7 +1,7 @@
 package com.ico.ltd.spring5mvcrest.services;
 
+import com.ico.ltd.model.CustomerDTO;
 import com.ico.ltd.spring5mvcrest.api.v1.mapper.CustomerMapper;
-import com.ico.ltd.spring5mvcrest.api.v1.model.CustomerDTO;
 import com.ico.ltd.spring5mvcrest.controllers.v1.CustomerController;
 import com.ico.ltd.spring5mvcrest.domain.Customer;
 import com.ico.ltd.spring5mvcrest.repositories.CustomerRepository;
@@ -31,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .stream()
                 .map(customer -> {
                     CustomerDTO customerDTO = mapper.customerToCustomerDTO(customer);
-                    customerDTO.setUrl(getCustomerUrl(customer.getId()));
+                    customerDTO.setCustomerUrl(getCustomerUrl(customer.getId()));
                     return customerDTO;
                 })
                 .collect(Collectors.toList());
@@ -54,7 +54,7 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerDTO saveAndReturn(Customer customer) {
         Customer updatedCustomer = customerRepository.save(customer);
         CustomerDTO customerDTO = mapper.customerToCustomerDTO(updatedCustomer);
-        customerDTO.setUrl(getCustomerUrl(updatedCustomer.getId()));
+        customerDTO.setCustomerUrl(getCustomerUrl(updatedCustomer.getId()));
         return customerDTO;
     }
 
@@ -78,7 +78,7 @@ public class CustomerServiceImpl implements CustomerService {
             }
 
             CustomerDTO returnedDTO = mapper.customerToCustomerDTO(customerRepository.save(customer));
-            returnedDTO.setUrl(getCustomerUrl(id));
+            returnedDTO.setCustomerUrl(getCustomerUrl(id));
 
             return returnedDTO;
         }).orElseThrow(ResourceNotFoundException::new);

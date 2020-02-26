@@ -1,7 +1,7 @@
 package com.ico.ltd.spring5mvcrest.services;
 
+import com.ico.ltd.model.CustomerDTO;
 import com.ico.ltd.spring5mvcrest.api.v1.mapper.CustomerMapper;
-import com.ico.ltd.spring5mvcrest.api.v1.model.CustomerDTO;
 import com.ico.ltd.spring5mvcrest.bootstrap.Bootstrap;
 import com.ico.ltd.spring5mvcrest.domain.Customer;
 import com.ico.ltd.spring5mvcrest.repositories.CategoryRepository;

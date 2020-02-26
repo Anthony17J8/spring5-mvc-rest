@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>rest-model</artifactId>
+    <packaging>jar</packaging>
 
     <build>
         <pluginManagement>

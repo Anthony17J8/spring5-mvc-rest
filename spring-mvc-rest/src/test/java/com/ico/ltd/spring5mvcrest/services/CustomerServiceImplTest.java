@@ -1,7 +1,7 @@
 package com.ico.ltd.spring5mvcrest.services;
 
+import com.ico.ltd.model.CustomerDTO;
 import com.ico.ltd.spring5mvcrest.api.v1.mapper.CustomerMapper;
-import com.ico.ltd.spring5mvcrest.api.v1.model.CustomerDTO;
 import com.ico.ltd.spring5mvcrest.domain.Customer;
 import com.ico.ltd.spring5mvcrest.repositories.CustomerRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -92,7 +92,7 @@ class CustomerServiceImplTest {
 
         //then
         assertEquals(customerDTO.getFirstName(), savedDto.getFirstName());
-        assertEquals("/api/v1/customers/1", savedDto.getUrl());
+        assertEquals("/api/v1/customers/1", savedDto.getCustomerUrl());
     }
 
     @Test
@@ -113,7 +113,7 @@ class CustomerServiceImplTest {
 
         //then
         assertEquals(customerDTO.getFirstName(), savedDto.getFirstName());
-        assertEquals("/api/v1/customers/1", savedDto.getUrl());
+        assertEquals("/api/v1/customers/1", savedDto.getCustomerUrl());
     }
 
     @Test

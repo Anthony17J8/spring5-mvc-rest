@@ -1,6 +1,6 @@
 package com.ico.ltd.spring5mvcrest.api.v1.mapper;
 
-import com.ico.ltd.spring5mvcrest.api.v1.model.CustomerDTO;
+import com.ico.ltd.model.CustomerDTO;
 import com.ico.ltd.spring5mvcrest.domain.Customer;
 import org.junit.jupiter.api.Test;
 
